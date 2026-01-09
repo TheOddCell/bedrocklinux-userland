@@ -422,7 +422,7 @@ extract_debs() {
 			elif [ -e "./data.tar.xz" ]; then
 				unxz "./data.tar.xz"
 			elif [ -e "./data.tar.zst" ]; then
-				 /bedrock/libexec/zstd -qd "./data.tar.zst"
+				/bedrock/libexec/zstd -qd "./data.tar.zst"
 			fi
 			tar xf data.tar
 			rm "./debian-binary"
@@ -706,7 +706,7 @@ rpmdb_to_brldb() {
 	# assume we always want the latest version.  Do this by inverse sorting
 	# paths by version so newest package versions show up first.
 	for pathfile in "${2}/paths"/*; do
-		cat "${pathfile}" | sort -rV > "${pathfile}-new"
+		cat "${pathfile}" | sort -rV >"${pathfile}-new"
 		mv "${pathfile}-new" "${pathfile}"
 	done
 }

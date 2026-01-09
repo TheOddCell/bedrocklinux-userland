@@ -443,7 +443,7 @@ for stratum in $(/bedrock/bin/brl list -ei); do
 		continue
 	fi
 	cp "${init}" "${init}-bedrock-patch"
-	sed 's/s6-linux-init /s6-linux-init -N /' "${init}" > "${init}-bedrock-patch"
+	sed 's/s6-linux-init /s6-linux-init -N /' "${init}" >"${init}-bedrock-patch"
 	mv "${init}-bedrock-patch" "${init}"
 done
 

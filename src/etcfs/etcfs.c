@@ -1548,7 +1548,8 @@ static int m_rename(const char *from, const char *to, unsigned int flags)
 		 * Copy into temporary file.
 		 */
 		unlinkat(to_ref_fd, tmp_path, 0);
-		if ((to_fd = openat(to_ref_fd, tmp_path, O_NONBLOCK | O_CREAT | O_RDWR | O_NOFOLLOW, stbuf.st_mode)) < 0) {
+		if ((to_fd = openat(to_ref_fd, tmp_path, O_NONBLOCK | O_CREAT | O_RDWR | O_NOFOLLOW,
+					stbuf.st_mode)) < 0) {
 			rv = -1;
 			goto clean_up_and_return;
 		}

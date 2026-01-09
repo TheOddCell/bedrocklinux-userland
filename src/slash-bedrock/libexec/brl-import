@@ -185,10 +185,10 @@ case "${src}" in
 	for partition in ${partitions}; do
 		if mount_partition "${partition}" "${image}" "${mnt}"; then
 			if [ -e "${mnt}/etc/os-release" ] || [ -h "${mnt}/etc/os-release" ]; then
-				echo "${partition}" >> "${tmp}/likely-root-partition"
+				echo "${partition}" >>"${tmp}/likely-root-partition"
 			fi
 			umount "${mnt}"
-			echo "${partition}" >> "${tmp}/linux-partitions"
+			echo "${partition}" >>"${tmp}/linux-partitions"
 		fi
 		echo "${partition}"
 	done | progress_bar "${partition_count}"
